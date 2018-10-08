@@ -1,0 +1,18 @@
+create table user_info(
+uiNum number(5,0) PRIMARY KEY,
+uiId varchar2(30) not null,
+uiPwd varchar2(50) not null,
+uiRPwd varchar2(50) not null,
+uiName varchar2(30) not null,
+uiBir number(8,0) not null,
+uiTran varchar2(30) not null,
+uiEmail varchar2(100)  not null,
+uiAddress varchar2(100) not null,
+uiDAddress varchar2(30) not null,
+uiPhone number(10,0) not null,
+uiDesc varchar2(1000),
+UNIQUE(uiId,uiEmail)
+);
+
+
+create SEQUENCE seq_uiNum;
