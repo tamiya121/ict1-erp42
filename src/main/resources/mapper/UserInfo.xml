@@ -29,6 +29,7 @@
 			<if test="uiPwd!=null">uiPwd=#{uiPwd},</if>
 			<if test="uiRPwd!=null">uiRPwd=#{uiRPwd},</if>
 			<if test="uiPhone!=null">uiPhone=#{uiPhone},</if>
+			<if test="uiEmail!=null">uiEmail=#{uiEmail},</if>
 			<if test="uiAddress!=null">uiAddress=#{uiAddress},</if>
 			<if test="uiDAddress!=null">uiDAddress=#{uiDAddress},</if>
 			<if test="uiDesc!=null">uiDesc=#{uiDesc},</if>						
