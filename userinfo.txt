@@ -16,3 +16,5 @@ UNIQUE(uiId,uiEmail)
 
 
 create SEQUENCE seq_uiNum;
+
+alter table user_info modify uiPhone varchar2(30);
