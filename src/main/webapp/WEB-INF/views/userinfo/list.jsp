@@ -77,46 +77,22 @@ uiName : <input type="text" name="uiName">
 <table border="1">
 	<thead>
 		<tr>
-			<th colspan="2">회원가입</th>
+			<th colspan="13"><h2>회원가입</h2></th>
 		</tr>
 		<tr>
-			<td>uiNum</td>
-		</tr>
-		<tr>	
-			<td>uiId</td>
-		</tr>
-		<tr>	
-			<td>uiPwd</td>
-		</tr>
-		<tr>	
-			<td>uiRPwd</td>
-		</tr>
-		<tr>	
-			<td>uiName</td>
-		</tr>
-		<tr>	
-			<td>uiBir</td>
-		</tr>
-		<tr>	
-			<td>uiTran</td>
-		</tr>
-		<tr>	
-			<td>uiEmail</td>
-		</tr>
-		<tr>	
-			<td>uiAddress</td>
-		</tr>
-		<tr>	
-			<td>uiDAddress</td>
-		</tr>
-		<tr>	
-			<td>uiPhone</td>
-		</tr>
-		<tr>	
-			<td>uiDesc</td>
-		</tr>
-		<tr>	
-			<td>수정/삭제</td>
+			<td>번호</td>
+			<td>아이디</td>
+			<td>비밀번호</td>
+			<td>비밀번호재확인</td>
+			<td>이름</td>
+			<td>생년월일</td>
+			<td>성별</td>
+			<td>이메일</td>
+			<td>주소</td>
+			<td>상세주소</td>
+			<td>연락처</td>
+			<td>기타사항</td>
+			<td>정보변경</td>
 		</tr>
 		</thead>
 		<tbody id="uiBody">
@@ -124,28 +100,34 @@ uiName : <input type="text" name="uiName">
 </table>
 <button onclick="addUserInfo()">정보입력</button>
 <script>
+
+
 function addUserInfo() {
 	
 	var html = '<tr>';
 		html += '<td>&nbsp;</td>';
-		html += '<td><input type="text" id="uiId" value=""></td>';	
-		html += '<td><input type="password" id="uiPwd" value=""></td>';
-		html += '<td><input type="password" id="uiRPwd" value=""></td>';
-		html += '<td><input type="text" id="uiName" value=""></td>';
-		html += '<td><input type="text" id="uiBir" value=""></td>';
-		html += '<td><input type="text" id="uiTran" value=""></td>';
-		html += '<td><input type="text" id="uiEmail" value=""></td>';
-		html += '<td><input type="text" id="uiAddress" value=""></td>';
-		html += '<td><input type="text" id="uiDAddress" value=""></td>';
-		html += '<td><input type="text" id="uiPhone" value=""></td>';
-		html += '<td><input type="text" id="uiDesc" value=""></td>';
+		html += '<td><input type="text" id="uiId" value=""placeholder="아이디를 입력해주세요."></td>';	
+		html += '<td><input type="password" id="uiPwd" value=""placeholder="비밀번호를 입력해주세요."></td>';
+		html += '<td><input type="password" id="uiRPwd" value=""placeholder="비밀번호를 다시 입력해주세요."></td>';
+		html += '<td><input type="text" id="uiName" value=""placeholder="이름을 입력해주세요."></td>';
+		html += '<td><input type="text" id="uiBir" value=""placeholder="생년월일을 입력해주세요."></td>';
+		html += '<td><input type="text" id="uiTran" value=""placeholder="성별을 입력해주세요."></td>';
+		html += '<td><input type="text" id="uiEmail" value=""placeholder="이메일을 입력해주세요."></td>';
+		html += '<td><input type="text" id="uiAddress" value=""placeholder="주소를 입력해주세요."></td>';
+		html += '<td><input type="text" id="uiDAddress" value=""placeholder="주소를 다시 입력해주세요."></td>';
+		html += '<td><input type="text" id="uiPhone" value=""placeholder="연락처를 입력해주세요."></td>';
+		html += '<td><input type="text" id="uiDesc" value=""placeholder="기타사항을 입력해주세요."></td>';
 		html += '<td><button onclick="saveUserInfo()">회원가입</button></td>';
 		html += '</tr>';
 		
 		
 		document.querySelector('#uiBody').insertAdjacentHTML('beforeend',html);
 		
+		
 		}
+
+
+		
 		
 function saveUserInfo() {
 	var uiId = document.querySelector("#uiId").value;
@@ -159,6 +141,9 @@ function saveUserInfo() {
 	var uiDAddress = document.querySelector("#uiDAddress").value;
 	var uiPhone = document.querySelector("#uiPhone").value;
 	var uiDesc = document.querySelector("#uiDesc").value;
+	
+	
+	
 	var params = {uiId:uiId, uiPwd:uiPwd, uiRPwd:uiRPwd, uiName:uiName, uiBir:uiBir, uiTran:uiTran, uiEmail:uiEmail, uiAddress:uiAddress, uiDAddress:uiDAddress, uiPhone:uiPhone, uiDesc:uiDesc};
 	params = JSON.stringify(params);
 	
@@ -168,7 +153,7 @@ function saveUserInfo() {
 				param : params,
 				success : function(res) {
 					if(res=='1') {
-						alert('저장완료');
+						alert('가입을 축하합니다~!');
 						
 					}
 				}
