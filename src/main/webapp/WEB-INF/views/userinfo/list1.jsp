@@ -97,7 +97,7 @@ uiName : <input type="text" name="uiName">
 		<tbody id="uiBody">
 		</tbody>
 </table>
-<button onclick="addUserInfo()">정보입력</button>
+<button onclick="location.href='/url/userinfo:login'">정보입력</button>
 <script>
 function addUserInfo() {
 	
