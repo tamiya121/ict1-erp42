@@ -40,7 +40,9 @@
 	}
 </script>
 
-<body>
+<div class="main">
+	<div class="container">
+	
 <table border="1">
 		
 		<tr>
@@ -48,7 +50,7 @@
 		</tr>
 		<tr>	
 			<td>번호</td>
-			<td><input type="text" id="uiNum" value="${ui.uiNum }"></td>
+			<td>${ui.uiNum}</td>
 			
 		</tr>
 		<tr>	
@@ -97,28 +99,30 @@
 			<td><input type="text" id="uiDesc" value="${ui.uiDesc }"></td>
 		</tr>
 </table>
-		<button onclick="updateUserInfo(uiNum)">수정</button>
-			
+		<button onclick="updateUserInfo(${ui.uiNum})" value="">수정</button>
+		<button onclick="deleteUserInfo(${ui.uiNum})" value="">삭제</button> 	
+</div>
+</div>
 			
 <script>			
 function updateUserInfo(uiNum) {
-	var uiId = document.querySelector("#uiId").value;
-	var uiPwd = document.querySelector("#uiPwd").value;
-	var uiRPwd = document.querySelector("#uiRPwd").value;
-	var uiName = document.querySelector("#uiName").value;
-	var uiBir = document.querySelector("#uiBir").value;
-	var uiTran = document.querySelector("#uiTran").value;
-	var uiEmail = document.querySelector("#uiEmail").value;
-	var uiAddress = document.querySelector("#uiAddress").value;
-	var uiDAddress = document.querySelector("#uiDAddress").value;
-	var uiPhone = document.querySelector("#uiPhone").value;
-	var uiDesc = document.querySelector("#uiDesc").value;
+	var uiId = document.querySelector('#uiId').value;
+	var uiPwd = document.querySelector('#uiPwd').value;
+	var uiRPwd = document.querySelector('#uiRPwd').value;
+	var uiName = document.querySelector('#uiName').value;
+	var uiBir = document.querySelector('#uiBir').value;
+	var uiTran = document.querySelector('#uiTran').value;
+	var uiEmail = document.querySelector('#uiEmail').value;
+	var uiAddress = document.querySelector('#uiAddress').value;
+	var uiDAddress = document.querySelector('#uiDAddress').value;
+	var uiPhone = document.querySelector('#uiPhone').value;
+	var uiDesc = document.querySelector('#uiDesc').value;
 	var params = {uiId:uiId, uiPwd:uiPwd, uiRPwd:uiRPwd, uiName:uiName, uiBir:uiBir, uiTran:uiTran, uiEmail:uiEmail, uiAddress:uiAddress, uiDAddress:uiDAddress, uiPhone:uiPhone, uiDesc:uiDesc};
 	params = JSON.stringify(params);
 	
 	var conf = {
 			url : '/userinfo/' + uiNum,
-			method : 'GET',
+			method : 'PUT',
 			param : params,
 			success : function(res) {
 				if(res=='1') {
@@ -130,5 +134,20 @@ function updateUserInfo(uiNum) {
 }		
 	var au = new AjaxUtil(conf);
 	au.send();
+}
+
+function deleteUserInfo(uiNum){			
+	var conf={url:'/userinfo/'+uiNum,
+			method:'DELETE',
+			success:function(res){
+			if(res=='1'){
+				alert("삭제 완료");
+				location.href='/url/userinfo:list1';
+			}		  
+		}
+	
+	}
+	var au=new AjaxUtil(conf);
+	au.send();	
 }
 </script>	

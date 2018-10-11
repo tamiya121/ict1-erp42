@@ -47,7 +47,7 @@
 					var html = '';
 					for(var ui of res) {
 						html += '<tr>';
-						html += '<td><a href=/url/userinfo:update>' + ui.uiNum + '</td>';
+						html += '<td><a href="/userinfo/'+ui.uiNum+'">'+ ui.uiNum +'</td>';
 						html += '<td><input type="text" id="uiId' + ui.uiNum +'" value="' + ui.uiId + '"></td>';
 						html += '<td><input type="password" id="uiPwd' + ui.uiNum +'" value="' + ui.uiPwd + '"></td>';
 						html += '<td><input type="password" id="uiRPwd' + ui.uiNum +'" value="' + ui.uiRPwd + '"></td>';
@@ -59,7 +59,6 @@
 						html += '<td><input type="text" id="uiDAddress' + ui.uiNum +'" value="' + ui.uiDAddress + '"></td>';
 						html += '<td><input type="text" id="uiPhone' + ui.uiNum +'" value="' + ui.uiPhone + '"></td>';
 						html += '<td><input type="text" id="uiDesc' + ui.uiNum +'" value="' + ui.uiDesc + '"></td>';
-						html += '<td><button onclick="updateUserInfo(' + ui.uiNum +')">수정</button><button onclick="deleteUserInfo(' + ui.uiNum + ')">삭제</button></td>';
 						html += '</tr>';
 					}
 					document.querySelector('#uiBody').insertAdjacentHTML('beforeend',html);
@@ -91,14 +90,13 @@ uiName : <input type="text" name="uiName">
 			<td>상세주소</td>
 			<td>연락처</td>
 			<td>기타사항</td>
-			<td>정보변경</td>
 		</tr>
 		</thead>
 		<tbody id="uiBody">
 		</tbody>
 </table>
 
-<td><button onclick="location.href='/url/userinfo:login'">정보입력</button></td>
+<button onclick="location.href='/url/userinfo:login'">정보입력</button>
 
 <script>
 
