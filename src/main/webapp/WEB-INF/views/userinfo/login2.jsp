@@ -92,7 +92,7 @@
 			<td><input type="text" id="uiDesc" required></td>
 		</tr>
 </table>
-<button>등록</button>	
+<button onclick="saveUserInfo()">등록</button>	
 <script>
 function saveUserInfo() {
 	var uiId = document.querySelector("#uiId").value;
@@ -158,8 +158,14 @@ function saveUserInfo() {
 		uiDesc = "";
 		return false;
 	}
-	if (uiEmail.trim().length ==0 || uiEmail != "@") {
+	if (uiEmail.trim().length ==0) {
 		alert("이메일을 입력해주세요.");
+		uiEmail = "";		
+		return false;
+	}
+	var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+	if(exptext.test(uiEmail)==false){
+		alert("이메일 형식에 맞게 입력해주세요.");
 		uiEmail = "";		
 		return false;
 	}
