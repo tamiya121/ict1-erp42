@@ -40,62 +40,61 @@
 	}
 </script>
 <body>
+<form onsubmit="saveUserInfo()">
 <table border="1">
 		
 		<tr>
 			<th colspan="13">회원가입</th>
 		</tr>
-		<tr>
-			<th>번호</th>
-			<td></td>
-		</tr>
+		
 		<tr>	
 			<td>아이디</td>
-			<td><input type="text" id="uiId"></td>
+			<td><input type="text" id="uiId" required></td>
+			
 		</tr>
 		<tr>	
 			<td>비밀번호</td>
-			<td><input type="password" id="uiPwd"></td>
+			<td><input type="password" id="uiPwd" required></td>
 		</tr>
 		<tr>	
 			<td>비밀번호재확인</td>
-			<td><input type="password" id="uiRPwd"></td>
+			<td><input type="password" id="uiRPwd" required></td>
 		</tr>
 		<tr>	
 			<td>이름</td>
-			<td><input type="text" id="uiName"></td>
+			<td><input type="text" id="uiName" required></td>
 		</tr>
 		<tr>	
 			<td>생년월일</td>
-			<td><input type="text" id="uiBir"></td>
+			<td><input type="text" id="uiBir" required></td>
 		</tr>
 		<tr>	
 			<td>성별</td>
-			<td><input type="text" id="uiTran"></td>
+			<td><input type="text" id="uiTran" required></td>
 		</tr>
 		<tr>	
 			<td>이메일</td>
-			<td><input type="text" id="uiEmail"></td>
+			<td><input type="email" id="uiEmail" required></td>
 		</tr>
 		<tr>	
 			<td>주소</td>
-			<td><input type="text" id="uiAddress"></td>
+			<td><input type="text" id="uiAddress" required></td>
 		</tr>
 		<tr>	
 			<td>상세주소</td>
-			<td><input type="text" id="uiDAddress"></td>
+			<td><input type="text" id="uiDAddress" required></td>
 		</tr>
 		<tr>	
 			<td>연락처</td>
-			<td><input type="text" id="uiPhone"></td>
+			<td><input type="text" id="uiPhone" required></td>
 		</tr>	
 		<tr>
 			<td>기타사항</td>
-			<td><input type="text" id="uiDesc"></td>
+			<td><input type="text" id="uiDesc" required></td>
 		</tr>
-		
 </table>
-<button onclick="saveUserInfo()">등록</button>	
+<button>등록</button>	
+</form>
 <script>
 function saveUserInfo() {
 	var uiId = document.querySelector("#uiId").value;
@@ -112,17 +111,54 @@ function saveUserInfo() {
 	
 	
 	if (uiId.trim().length < 3) {
-		alert("ID를 3글자 이상 입력하세요");
+		alert("ID를 3글자 이상 입력해주세요");
 		uiId = "";
+		
 	}
 	if (uiPwd.trim().length < 3) {
-		alert("비밀번호 3글자 이상 입력하세요");
+		alert("비밀번호 3글자 이상 입력해주세요");
 		uiPwd = "";
+		
 	}
 	if (uiRPwd != uiPwd) {
 		alert("비밀번호가 다릅니다");
 		uiRPwd = "";
+		
 	}
+	if (uiName.trim().length < 2) {
+		alert("이름을 2글자 이상 입력해주세요");
+		uiName = "";
+		
+	}
+	if (uiBir.trim().length != 8) {
+		alert("ex)90년 1월 1일 -> 19900101");
+		uiBir = "";
+		
+	}
+	if (uiTran.trim().length != 1) {
+		alert("남/여로 구분하여 입력해주세요");
+		uiTran = "";
+		
+	}
+	if (uiAddress.trim().length > 30) {
+		alert("주소를 30자 이내로 입력해주세요");
+		uiAddress = "";
+	}
+	if (uiDAddress.trim().length > 30) {
+		alert("상세주소를 30자 이내로 입력해주세요");
+		uiDAddress = "";
+	}
+	if (uiPhone.trim().length > 12) {
+		alert("연락처 ex)01000000000");
+		uiPhone = "";
+		
+	}
+	if (uiDesc.trim().length > 300) {
+		alert("기타사항을 300자 이내로 입력해주세요");
+		uiDesc = "";
+		
+	}
+	
 	
 	var params = {uiId:uiId, uiPwd:uiPwd, uiRPwd:uiRPwd, uiName:uiName, uiBir:uiBir, uiTran:uiTran, uiEmail:uiEmail, uiAddress:uiAddress, uiDAddress:uiDAddress, uiPhone:uiPhone, uiDesc:uiDesc};
 	params = JSON.stringify(params);
@@ -133,7 +169,7 @@ function saveUserInfo() {
 				param : params,
 				success : function(res) {
 					if(res=='1') {
-						alert('가입을 축하합니다~!');
+						alert('회원가입이 완료되었습니다~!');
 						location.href='/url/userinfo:list1';
 					}
 				}
