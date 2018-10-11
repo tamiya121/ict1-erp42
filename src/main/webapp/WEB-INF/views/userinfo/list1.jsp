@@ -47,14 +47,14 @@
 					var html = '';
 					for(var ui of res) {
 						html += '<tr>';
-						html += '<td>' + ui.uiNum + '</td>';
+						html += '<td><a href=/url/userinfo:update>' + ui.uiNum + '</td>';
 						html += '<td><input type="text" id="uiId' + ui.uiNum +'" value="' + ui.uiId + '"></td>';
 						html += '<td><input type="password" id="uiPwd' + ui.uiNum +'" value="' + ui.uiPwd + '"></td>';
 						html += '<td><input type="password" id="uiRPwd' + ui.uiNum +'" value="' + ui.uiRPwd + '"></td>';
 						html += '<td><input type="text" id="uiName' + ui.uiNum +'" value="' + ui.uiName + '"></td>';
 						html += '<td><input type="text" id="uiBir' + ui.uiNum +'" value="' + ui.uiBir + '"></td>';
 						html += '<td><input type="text" id="uiTran' + ui.uiNum +'" value="' + ui.uiTran + '"></td>';
-						html += '<td><input type="text" id="uiEmail' + ui.uiNum +'" value="' + ui.uiEmail + '"></td>';
+						html += '<td><input type="email" id="uiEmail' + ui.uiNum +'" value="' + ui.uiEmail + '"></td>';
 						html += '<td><input type="text" id="uiAddress' + ui.uiNum +'" value="' + ui.uiAddress + '"></td>';
 						html += '<td><input type="text" id="uiDAddress' + ui.uiNum +'" value="' + ui.uiDAddress + '"></td>';
 						html += '<td><input type="text" id="uiPhone' + ui.uiNum +'" value="' + ui.uiPhone + '"></td>';
@@ -97,8 +97,11 @@ uiName : <input type="text" name="uiName">
 		<tbody id="uiBody">
 		</tbody>
 </table>
-<button onclick="location.href='/url/userinfo:login'">정보입력</button>
+
+<td><button onclick="location.href='/url/userinfo:login'">정보입력</button></td>
+
 <script>
+
 function addUserInfo() {
 	
 	var html = '<tr>';
@@ -157,6 +160,7 @@ function saveUserInfo() {
 	au.send();
 	
 }
+
 function updateUserInfo(uiNum) {
 	var uiId = document.querySelector("#uiId" + uiNum).value;
 	var uiPwd = document.querySelector("#uiPwd" + uiNum).value;
@@ -184,6 +188,7 @@ function updateUserInfo(uiNum) {
 	var au = new AjaxUtil(conf);
 	au.send();
 	}
+	
 	function deleteUserInfo(uiNum) {
 	var conf = {
 			url : '/userinfo/' + uiNum,
@@ -191,7 +196,7 @@ function updateUserInfo(uiNum) {
 			success : function(res) {
 				if(res=='1') {
 					alert('삭제완료');
-					location.href='/url/userinfo:list';
+					location.href='/url/userinfo:list1';
 				}
 			}
 	}
