@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ict.erp.service.UserInfoService;
 import com.ict.erp.vo.UserInfo;
@@ -30,11 +31,10 @@ public class UserInfoController {
 	
 	//단일select
 	@RequestMapping(value="/userinfo/{uiNum}", method=RequestMethod.GET)
-	@ResponseBody
-	public UserInfo selectUserInfo(@PathVariable Integer uiNum) {
+	public ModelAndView selectUserInfo(@PathVariable Integer uiNum) {
 		System.out.println(uiNum);
-		return uis.selectUserInfo(uiNum);
-	}
+		return new ModelAndView("userinfo/update","ui",uis.selectUserInfo(uiNum));
+	} //ModelAndView(뷰,"Model addAttribute임 key값",object)
 	
 	//insert
 	@RequestMapping(value="/userinfo",method=RequestMethod.POST)
