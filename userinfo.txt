@@ -10,8 +10,7 @@ uiEmail varchar2(100)  not null unique,
 uiAddress varchar2(100) not null,
 uiDAddress varchar2(30) not null,
 uiPhone number(10,0) not null,
-uiDesc varchar2(1000),
-UNIQUE(uiId,uiEmail)
+uiDesc varchar2(1000)
 );
 
 
