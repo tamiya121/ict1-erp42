@@ -7,92 +7,96 @@
 <title>Insert title here</title>
 </head>
 <script>
-	var AjaxUtil = function(conf) {
-		var xhr = new XMLHttpRequest();
-		var url = conf.url;
-		var method = conf.method?conf.method:'GET';
-		var param = conf.param?conf.param:'{}';
-		
-		var success = conf.success?conf.success:function(res) {
-			alert(res);
-		}
-		
-		var error = conf.error?conf.error:function(res) {
-			alert(res);
-		}
-		
-		xhr.onreadystatechange = function() {
-			if(xhr.readyState==4) {
-				if(xhr.status=="200") {
-					success(xhr.responseText);
-				}else {
-					error(xhr.responseText);
-				}
+var AjaxUtil = function(conf) {
+	var xhr = new XMLHttpRequest();
+	var url = conf.url;
+	var method = conf.method?conf.method:'GET';
+	var param = conf.param?conf.param:'{}';
+	
+	var success = conf.success?conf.success:function(res) {
+		alert(res);
+	}
+	
+	var error = conf.error?conf.error:function(res) {
+		alert(res);
+	}
+	
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState==4) {
+			if(xhr.status=="200") {
+				success(xhr.responseText);
+			}else {
+				error(xhr.responseText);
 			}
 		}
-		xhr.open(method,url);
-		if(method!='GET') {
-			xhr.setRequestHeader('Content-type','application/json;charset=utf-8');
-		}
-		this.send = function() {
-			xhr.send(param);
-		}
 	}
+	xhr.open(method,url);
+	if(method!='GET') {
+		xhr.setRequestHeader('Content-type','application/json;charset=utf-8');
+	}
+	this.send = function() {
+		xhr.send(param);
+	}
+}
 </script>
 <body>
+
 <table border="1">
+
+
 		
 		<tr>
-			<th colspan="13">회원가입</th>
+			<th colspan="2">회원가입</th>
 		</tr>
 		
 		<tr>	
 			<td>아이디</td>
-			<td><input type="text" id="uiId" required></td>
+			<td><input type="text" id="uiId" placeholder="ID 3글자 이상 입력"required></td>
 			
 		</tr>
 		<tr>	
 			<td>비밀번호</td>
-			<td><input type="password" id="uiPwd" required></td>
+			<td><input type="password" id="uiPwd" placeholder="비밀번호 3글자 이상 입력" required></td>
 		</tr>
 		<tr>	
 			<td>비밀번호재확인</td>
-			<td><input type="password" id="uiRPwd" required></td>
+			<td><input type="password" id="uiRPwd" placeholder="비밀번호 확인" required></td>
 		</tr>
 		<tr>	
 			<td>이름</td>
-			<td><input type="text" id="uiName" required></td>
+			<td><input type="text" id="uiName" placeholder="이름 2글자 이상 입력" required></td>
 		</tr>
 		<tr>	
 			<td>생년월일</td>
-			<td><input type="text" id="uiBir" required></td>
+			<td><input type="text" id="uiBir" placeholder="ex)19901212" required></td>
 		</tr>
 		<tr>	
 			<td>성별</td>
-			<td><input type="text" id="uiTran" required></td>
+			<td><input type="text" id="uiTran" placeholder="남/여" required></td>
 		</tr>
 		<tr>	
 			<td>이메일</td>
-			<td><input type="email" id="uiEmail" required></td>
+			<td><input type="email" id="uiEmail" placeholder="30자 이내 입력" required></td>
 		</tr>
 		<tr>	
 			<td>주소</td>
-			<td><input type="text" id="uiAddress" required></td>
+			<td><input type="text" id="uiAddress" placeholder="30자 이내 입력" required></td>
 		</tr>
 		<tr>	
 			<td>상세주소</td>
-			<td><input type="text" id="uiDAddress" required></td>
+			<td><input type="text" id="uiDAddress" placeholder="30자 이내 입력" required></td>
 		</tr>
 		<tr>	
 			<td>연락처</td>
-			<td><input type="text" id="uiPhone" required></td>
+			<td><input type="text" id="uiPhone" placeholder="-없이 입력" required></td>
 		</tr>	
 		<tr>
 			<td>기타사항</td>
-			<td><input type="text" id="uiDesc" required></td>
+			<td><input type="text" id="uiDesc" placeholder="300자 이내 입력" required></td>
 		</tr>
 </table>
 <button onclick="saveUserInfo()">등록</button>	
+
 <script>
 function saveUserInfo() {
 	var uiId = document.querySelector("#uiId").value;
@@ -138,6 +142,7 @@ function saveUserInfo() {
 		uiTran = "";
 		return false;
 	}
+	
 	if (uiAddress.trim().length > 30) {
 		alert("주소를 30자 이내로 입력해주세요");
 		uiAddress = "";

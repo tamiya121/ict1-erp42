@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,17 +51,17 @@
 					for(var ui of res) {
 						html += '<tr>';
 						html += '<td><a href="/userinfo/'+ui.uiNum+'">'+ ui.uiNum +'</td>';
-						html += '<td><input type="text" id="uiId' + ui.uiNum +'" value="' + ui.uiId + '"></td>';
-						html += '<td><input type="password" id="uiPwd' + ui.uiNum +'" value="' + ui.uiPwd + '"></td>';
-						html += '<td><input type="password" id="uiRPwd' + ui.uiNum +'" value="' + ui.uiRPwd + '"></td>';
-						html += '<td><input type="text" id="uiName' + ui.uiNum +'" value="' + ui.uiName + '"></td>';
-						html += '<td><input type="text" id="uiBir' + ui.uiNum +'" value="' + ui.uiBir + '"></td>';
-						html += '<td><input type="text" id="uiTran' + ui.uiNum +'" value="' + ui.uiTran + '"></td>';
-						html += '<td><input type="email" id="uiEmail' + ui.uiNum +'" value="' + ui.uiEmail + '"></td>';
-						html += '<td><input type="text" id="uiAddress' + ui.uiNum +'" value="' + ui.uiAddress + '"></td>';
-						html += '<td><input type="text" id="uiDAddress' + ui.uiNum +'" value="' + ui.uiDAddress + '"></td>';
-						html += '<td><input type="text" id="uiPhone' + ui.uiNum +'" value="' + ui.uiPhone + '"></td>';
-						html += '<td><input type="text" id="uiDesc' + ui.uiNum +'" value="' + ui.uiDesc + '"></td>';
+						html += '<td>' + ui.uiId +'</td>';
+						html += '<td>' + ui.uiPwd + '</td>';
+						html += '<td>' + ui.uiRPwd + '</td>';
+						html += '<td>'+ ui.uiName + '</td>';
+						html += '<td>' + ui.uiBir + '</td>';
+						html += '<td>' + ui.uiTran + '</td>';
+						html += '<td>' + ui.uiEmail + '</td>';
+						html += '<td>' + ui.uiAddress + '</td>';
+						html += '<td>' + ui.uiDAddress + '</td>';
+						html += '<td>' + ui.uiPhone + '</td>';
+						html += '<td>' + ui.uiDesc + '</td>';
 						html += '</tr>';
 					}
 					document.querySelector('#uiBody').insertAdjacentHTML('beforeend',html);
@@ -98,109 +101,6 @@ uiName : <input type="text" name="uiName">
 
 <button onclick="location.href='/url/userinfo:login'">정보입력</button>
 
-<script>
 
-function addUserInfo() {
-	
-	var html = '<tr>';
-		html += '<td>&nbsp;</td>';
-		html += '<td><input type="text" id="uiId" value=""placeholder="아이디를 입력해주세요."></td>';	
-		html += '<td><input type="password" id="uiPwd" value=""placeholder="비밀번호를 입력해주세요."></td>';
-		html += '<td><input type="password" id="uiRPwd" value=""placeholder="비밀번호를 다시 입력해주세요."></td>';
-		html += '<td><input type="text" id="uiName" value=""placeholder="이름을 입력해주세요."></td>';
-		html += '<td><input type="text" id="uiBir" value=""placeholder="생년월일을 입력해주세요."></td>';
-		html += '<td><input type="text" id="uiTran" value=""placeholder="성별을 입력해주세요."></td>';
-		html += '<td><input type="text" id="uiEmail" value=""placeholder="이메일을 입력해주세요."></td>';
-		html += '<td><input type="text" id="uiAddress" value=""placeholder="주소를 입력해주세요."></td>';
-		html += '<td><input type="text" id="uiDAddress" value=""placeholder="주소를 다시 입력해주세요."></td>';
-		html += '<td><input type="text" id="uiPhone" value=""placeholder="연락처를 입력해주세요."></td>';
-		html += '<td><input type="text" id="uiDesc" value=""placeholder="기타사항을 입력해주세요."></td>';
-		html += '<td><button onclick="saveUserInfo()" style="width: 100%">회원가입</button></td>';
-		html += '</tr>';
-		
-		
-		document.querySelector('#uiBody').insertAdjacentHTML('beforeend',html);
-		
-		
-		}
-		
-		
-function saveUserInfo() {
-	var uiId = document.querySelector("#uiId").value;
-	var uiPwd = document.querySelector("#uiPwd").value;
-	var uiRPwd = document.querySelector("#uiRPwd").value;
-	var uiName = document.querySelector("#uiName").value;
-	var uiBir = document.querySelector("#uiBir").value;
-	var uiTran = document.querySelector("#uiTran").value;
-	var uiEmail = document.querySelector("#uiEmail").value;
-	var uiAddress = document.querySelector("#uiAddress").value;
-	var uiDAddress = document.querySelector("#uiDAddress").value;
-	var uiPhone = document.querySelector("#uiPhone").value;
-	var uiDesc = document.querySelector("#uiDesc").value;
-	
-	
-	
-	var params = {uiId:uiId, uiPwd:uiPwd, uiRPwd:uiRPwd, uiName:uiName, uiBir:uiBir, uiTran:uiTran, uiEmail:uiEmail, uiAddress:uiAddress, uiDAddress:uiDAddress, uiPhone:uiPhone, uiDesc:uiDesc};
-	params = JSON.stringify(params);
-	
-	var conf = {
-				url : '/userinfo/',
-				method : 'POST',
-				param : params,
-				success : function(res) {
-					if(res=='1') {
-						alert('가입을 축하합니다~!');
-						
-					}
-				}
-	}
-	var au = new AjaxUtil(conf);
-	au.send();
-	
-}
-
-function updateUserInfo(uiNum) {
-	var uiId = document.querySelector("#uiId" + uiNum).value;
-	var uiPwd = document.querySelector("#uiPwd" + uiNum).value;
-	var uiRPwd = document.querySelector("#uiRPwd" + uiNum).value;
-	var uiName = document.querySelector("#uiName" + uiNum).value;
-	var uiBir = document.querySelector("#uiBir" + uiNum).value;
-	var uiTran = document.querySelector("#uiTran" + uiNum).value;
-	var uiEmail = document.querySelector("#uiEmail" + uiNum).value;
-	var uiAddress = document.querySelector("#uiAddress" + uiNum).value;
-	var uiDAddress = document.querySelector("#uiDAddress" + uiNum).value;
-	var uiPhone = document.querySelector("#uiPhone" + uiNum).value;
-	var uiDesc = document.querySelector("#uiDesc" + uiNum).value;
-	var params = {uiId:uiId, uiPwd:uiPwd, uiRPwd:uiRPwd, uiName:uiName, uiBir:uiBir, uiTran:uiTran, uiEmail:uiEmail, uiAddress:uiAddress, uiDAddress:uiDAddress, uiPhone:uiPhone, uiDesc:uiDesc};
-	params = JSON.stringify(params);
-	
-	var conf = {
-			url : '/userinfo/' + uiNum,
-			method : 'PUT',
-			param : params,
-			success : function(res) {
-				alert(res);
-			
-			}
-}
-	var au = new AjaxUtil(conf);
-	au.send();
-	}
-	
-	function deleteUserInfo(uiNum) {
-	var conf = {
-			url : '/userinfo/' + uiNum,
-			method : 'DELETE',
-			success : function(res) {
-				if(res=='1') {
-					alert('삭제완료');
-					location.href='/url/userinfo:list1';
-				}
-			}
-	}
-	var au = new AjaxUtil(conf);
-	au.send();
-}
-</script>
 </body>
 </html>

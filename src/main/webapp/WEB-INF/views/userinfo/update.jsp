@@ -46,7 +46,7 @@
 <table border="1">
 		
 		<tr>
-			<th colspan="13">회원가입</th>
+			<th colspan="2">회원가입</th>
 		</tr>
 		<tr>	
 			<td>번호</td>
