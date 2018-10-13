@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title>Insert title here</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <script>
 	var AjaxUtil = function(conf) {
@@ -40,14 +43,16 @@
 	}
 </script>
 
-<div class="main">
-	<div class="container">
-	
-<table border="1">
+<body>
+<div class="container">
+    <form id="boardForm" name="boardForm" method="post">
+        <table class="table table-striped table-hover">
 		
-		<tr>
-			<th colspan="2">회원가입</th>
-		</tr>
+		<thead>
+				<tr>
+					<td>&nbsp</td>	
+				</tr>	
+			</thead>
 		<tr>	
 			<td>번호</td>
 			<td>${ui.uiNum}</td>
@@ -100,9 +105,13 @@
 		</tr>
 </table>
 		<button onclick="updateUserInfo(${ui.uiNum})" value="">수정</button>
-		<button onclick="deleteUserInfo(${ui.uiNum})" value="">삭제</button> 	
+		<button onclick="deleteUserInfo(${ui.uiNum})" value="">삭제</button>
+		</form>
+		 	
 </div>
-</div>
+</body>
+
+
 			
 <script>			
 function updateUserInfo(uiNum) {
@@ -150,4 +159,5 @@ function deleteUserInfo(uiNum){
 	var au=new AjaxUtil(conf);
 	au.send();	
 }
-</script>	
+</script>
+</html>	
