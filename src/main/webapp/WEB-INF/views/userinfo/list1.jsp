@@ -1,14 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="/css/bootstrap.css">
-<link rel="stylesheet" href="/css/auth.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 <script>
@@ -56,7 +52,7 @@
 						html += '<td>' + ui.uiId +'</td>';
 						html += '<td>' + ui.uiPwd + '</td>';
 						html += '<td>' + ui.uiRPwd + '</td>';
-						html += '<td>'+ ui.uiName + '</td>';
+						html += '<td>' + ui.uiName + '</td>';
 						html += '<td>' + ui.uiBir + '</td>';
 						html += '<td>' + ui.uiTran + '</td>';
 						html += '<td>' + ui.uiEmail + '</td>';
@@ -75,12 +71,12 @@
 	});
 </script>
 <body>
-	<div class="container">
+	<div class="w3-container">
 		<form id="boardForm" name="boardForm" method="post">
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
-						<th colspan="12"><h1>회원가입</h1></th>
+						<th colspan="13"><h1>회원가입</h1></th>
 					</tr>
 					<tr>
 						<td>번호</td>

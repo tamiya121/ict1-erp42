@@ -1,13 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <script>
 	var AjaxUtil = function(conf) {
@@ -104,8 +101,11 @@
 			<td><input type="text" id="uiDesc" value="${ui.uiDesc }"></td>
 		</tr>
 </table>
-		<button onclick="updateUserInfo(${ui.uiNum})" value="">수정</button>
-		<button onclick="deleteUserInfo(${ui.uiNum})" value="">삭제</button>
+		
+		<div>            
+            <a href='#' onclick="updateUserInfo(${ui.uiNum})" class="btn btn-success">수정</a>     
+            <a href='#' onclick="deleteUserInfo(${ui.uiNum})" class="btn btn-success">삭제</a>            
+         </div>
 		</form>
 		 	
 </div>
@@ -150,7 +150,7 @@ function deleteUserInfo(uiNum){
 			method:'DELETE',
 			success:function(res){
 			if(res=='1'){
-				alert("삭제 완료");
+				alert("삭제가 완료되었습니다~!");
 				location.href='/url/userinfo:list1';
 			}		  
 		}

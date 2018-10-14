@@ -1,12 +1,10 @@
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/auth.css">
-    
-  
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <script>
 var AjaxUtil = function(conf) {
@@ -42,79 +40,65 @@ var AjaxUtil = function(conf) {
 }
 </script>
 <body>
+
 <div class="container">
     <form id="boardForm" name="boardForm" method="post">
-        <table class="table table-striped table-hover">
-			<thead>
+		<table class="table table-striped table-hover">
+		<thead>
 				<tr>
 					<td>&nbsp</td>	
 				</tr>	
 			</thead>
-			<tbody>
-		<tr>
+		
+		<tr>	
 			<td>아이디</td>
-			<td><input type="text" id="uiId" placeholder="ID 3글자 이상 입력"
-				required></td>
-
+			<td><input type="text" id="uiId" placeholder="ID 3글자 이상 입력"required></td>
+			
 		</tr>
-		<tr>
+		<tr>	
 			<td>비밀번호</td>
-			<td><input type="password" id="uiPwd"
-				placeholder="비밀번호 3글자 이상 입력" required></td>
+			<td><input type="password" id="uiPwd" placeholder="비밀번호 3글자 이상 입력" required></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>비밀번호재확인</td>
-			<td><input type="password" id="uiRPwd" placeholder="비밀번호 확인"
-				required></td>
+			<td><input type="password" id="uiRPwd" placeholder="비밀번호 확인" required></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>이름</td>
-			<td><input type="text" id="uiName" placeholder="이름 2글자 이상 입력"
-				required></td>
+			<td><input type="text" id="uiName" placeholder="이름 2글자 이상 입력" required></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>생년월일</td>
-			<td><input type="text" id="uiBir" placeholder="ex)19901212"
-				required></td>
+			<td><input type="text" id="uiBir" placeholder="ex)19901212" required></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>성별</td>
 			<td><input type="text" id="uiTran" placeholder="남/여" required></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>이메일</td>
-			<td><input type="email" id="uiEmail" placeholder="30자 이내 입력"
-				required></td>
+			<td><input type="email" id="uiEmail" placeholder="30자 이내 입력" required></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>주소</td>
-			<td><input type="text" id="uiAddress" placeholder="30자 이내 입력"
-				required></td>
+			<td><input type="text" id="uiAddress" placeholder="30자 이내 입력" required></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>상세주소</td>
-			<td><input type="text" id="uiDAddress" placeholder="30자 이내 입력"
-				required></td>
+			<td><input type="text" id="uiDAddress" placeholder="30자 이내 입력" required></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>연락처</td>
-			<td><input type="text" id="uiPhone" placeholder="-없이 입력"
-				required></td>
-		</tr>
+			<td><input type="text" id="uiPhone" placeholder="-없이 입력" required></td>
+		</tr>	
 		<tr>
 			<td>기타사항</td>
-			<td><input type="text" id="uiDesc" placeholder="300자 이내 입력"
-				required></td>
+			<td><input type="text" id="uiDesc" placeholder="300자 이내 입력" required></td>
 		</tr>
-		</tbody>
-	</table>
-	
- 		<div>            
-            <a href='#' onclick="saveUserInfo()" class="btn btn-success">등록</a>            
-        </div>
-        </form>
-        </div>
-	<script>
+</table>
+
+<a href='#' onclick="saveUserInfo()" class="btn btn-success">등록</a>     
+<script>
 function saveUserInfo() {
 	var uiId = document.querySelector("#uiId").value;
 	var uiPwd = document.querySelector("#uiPwd").value;
@@ -212,6 +196,7 @@ function saveUserInfo() {
 	
 }
 </script>
-	
+</form>
+</div>
 </body>
 </html>

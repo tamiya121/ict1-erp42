@@ -4,14 +4,16 @@ uiId varchar2(30) not null unique,
 uiPwd varchar2(50) not null,
 uiRPwd varchar2(50) not null,
 uiName varchar2(30) not null,
-uiBir number(8,0) not null,
+uiBir char(10) not null,
 uiTran varchar2(30) not null,
 uiEmail varchar2(100)  not null unique,
 uiAddress varchar2(100) not null,
 uiDAddress varchar2(30) not null,
-uiPhone number(10,0) not null,
+uiPhone varchar2(30) not null,
 uiDesc varchar2(1000)
 );
+
+
 
 
 create SEQUENCE seq_uiNum;
