@@ -1,0 +1,15 @@
+@charset "UTF-8";
+tr>td{
+	cursor:pointer;
+	text-align:center;
+}
+tr>th{
+	text-align:center;
+}
+.search{
+	margin:10px;
+	padding:0,10px,0,10px;
+}
+.active{
+	background-color:rgba(120,120,255,0.5);
+}

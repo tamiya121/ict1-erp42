@@ -1,6 +1,8 @@
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-
-<!DOCTYPE html>
+<%@page import="com.ict.erp.vo.UserInfo"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/common.jsp"%>
 <html>
 <head>
     <link rel="stylesheet" href="/css/bootstrap.css">
@@ -41,15 +43,27 @@
 </script>
 
 <body>
+<style>
+table, th, td {
+    border: 1px solid #bcbcbc;
+  }
+  .jb-th-1 {
+    width: 100px;
+  }
+</style>
+	<div id="wrapper">
+		<jsp:include page="/WEB-INF/views/menu/left.jsp" />
+		<div id="page-content-wrapper">
+			<div>
+				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+			</div>
+		</div>
+	</div>
 <div class="container">
     <form id="boardForm" name="boardForm" method="post">
         <table class="table table-striped table-hover">
 		
-		<thead>
-				<tr>
-					<td>&nbsp</td>	
-				</tr>	
-			</thead>
+		
 		<tr>	
 			<td>번호</td>
 			<td>${ui.uiNum}</td>
@@ -103,8 +117,8 @@
 </table>
 		
 		<div>            
-            <a href='#' onclick="updateUserInfo(${ui.uiNum})" class="btn btn-success">수정</a>     
-            <a href='#' onclick="deleteUserInfo(${ui.uiNum})" class="btn btn-success">삭제</a>            
+            <center><a href='#' style="WIDTH: 60pt; HEIGHT: 30pt"  onclick="updateUserInfo(${ui.uiNum})" class="btn btn-success">수  정</a> <a href='#' style="WIDTH: 60pt; HEIGHT: 30pt" onclick="deleteUserInfo(${ui.uiNum})" class="btn btn-success">삭  제</a></center>    
+               
          </div>
 		</form>
 		 	
@@ -161,3 +175,4 @@ function deleteUserInfo(uiNum){
 }
 </script>
 </html>	
+<jsp:include page="/WEB-INF/views/menu/bottom.jsp" />

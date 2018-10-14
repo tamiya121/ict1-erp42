@@ -1,6 +1,8 @@
+<%@page import="com.ict.erp.vo.UserInfo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/common.jsp"%>
 <html>
 <head>
     <link rel="stylesheet" href="/css/bootstrap.css">
@@ -39,16 +41,28 @@ var AjaxUtil = function(conf) {
 	}
 }
 </script>
-<body>
 
+<body>
+<style>
+table, th, td {
+    border: 1px solid #bcbcbc;
+  }
+  .jb-th-1 {
+    width: 100px;
+  }
+</style>
+	<div id="wrapper">
+		<jsp:include page="/WEB-INF/views/menu/left.jsp" />
+		<div id="page-content-wrapper">
+			<div>
+				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+			</div>
+		</div>
+	</div>
 <div class="container">
     <form id="boardForm" name="boardForm" method="post">
 		<table class="table table-striped table-hover">
-		<thead>
-				<tr>
-					<td>&nbsp</td>	
-				</tr>	
-			</thead>
+		
 		
 		<tr>	
 			<td>아이디</td>
@@ -97,7 +111,7 @@ var AjaxUtil = function(conf) {
 		</tr>
 </table>
 
-<a href='#' onclick="saveUserInfo()" class="btn btn-success">등록</a>     
+<center><a href='#' style="WIDTH: 60pt; HEIGHT: 30pt" onclick="saveUserInfo()" class="btn btn-success">등록</a></center>     
 <script>
 function saveUserInfo() {
 	var uiId = document.querySelector("#uiId").value;
@@ -200,3 +214,4 @@ function saveUserInfo() {
 </div>
 </body>
 </html>
+<jsp:include page="/WEB-INF/views/menu/bottom.jsp" />
