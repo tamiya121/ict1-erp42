@@ -45,7 +45,7 @@
 <body>
 <style>
 table, th, td {
-    border: 1px solid #bcbcbc;
+    border: 3px solid #bcbcbc;
   }
   .jb-th-1 {
     width: 100px;
@@ -62,7 +62,9 @@ table, th, td {
 <div class="container">
     <form id="boardForm" name="boardForm" method="post">
         <table class="table table-striped table-hover">
-		
+		<tr>
+			<th colspan="2"><h1>정보변경</h1></th>
+		</tr>
 		
 		<tr>	
 			<td>번호</td>
@@ -150,7 +152,7 @@ function updateUserInfo(uiNum) {
 			success : function(res) {
 				if(res=='1') {
 					alert('변경이 완료되었습니다~!');
-					location.href='/url/userinfo:list1';
+					location.href='/url/userinfo:list';
 				}
 			
 			}
@@ -165,7 +167,7 @@ function deleteUserInfo(uiNum){
 			success:function(res){
 			if(res=='1'){
 				alert("삭제가 완료되었습니다~!");
-				location.href='/url/userinfo:list1';
+				location.href='/url/userinfo:list';
 			}		  
 		}
 	
