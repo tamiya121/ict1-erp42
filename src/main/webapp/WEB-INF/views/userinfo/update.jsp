@@ -81,11 +81,7 @@
 			<td>${ui.uiNum}</td>
 			
 		</tr>
-		<tr>	
-			<td>아이디</td>
-			<td><input type="text" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiId" value="${ui.uiId }"></td>
-			
-		</tr>
+		
 		<tr>	
 			<td>비밀번호</td>
 			<td><input type="password" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiPwd" value="${ui.uiPwd }"></td>
@@ -93,18 +89,6 @@
 		<tr>	
 			<td>비밀번호재확인</td>
 			<td><input type="password" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiRPwd" value="${ui.uiRPwd }"></td>
-		</tr>
-		<tr>	
-			<td>이름</td>
-			<td><input type="text" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiName" value="${ui.uiName }"></td>
-		</tr>
-		<tr>	
-			<td>생년월일</td>
-			<td><input type="text" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiBir" value="${ui.uiBir }"></td>
-		</tr>
-		<tr>	
-			<td>성별</td>
-			<td><input type="text" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiTran" value="${ui.uiTran }"></td>
 		</tr>
 		<tr>	
 			<td>이메일</td>
@@ -142,25 +126,16 @@
 			
 <script>			
 function updateUserInfo(uiNum) {
-	var uiId = document.querySelector('#uiId').value;
+	
 	var uiPwd = document.querySelector('#uiPwd').value;
 	var uiRPwd = document.querySelector('#uiRPwd').value;
-	var uiName = document.querySelector('#uiName').value;
-	var uiBir = document.querySelector('#uiBir').value;
-	var uiTran = document.querySelector('#uiTran').value;
 	var uiEmail = document.querySelector('#uiEmail').value;
 	var uiAddress = document.querySelector('#uiAddress').value;
 	var uiDAddress = document.querySelector('#uiDAddress').value;
 	var uiPhone = document.querySelector('#uiPhone').value;
 	var uiDesc = document.querySelector('#uiDesc').value;
 	
-	var id = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/
-		if (id.test(uiId)==false) {
-			alert("ID를 8~24자 영문대소문자, 숫자 혼합하여 사용해주세요");
-			uiId = "";
-			 $("#uiId").focus();
-			return;
-		}
+	
 	var pwd = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/
 	if (pwd.test(uiPwd)==false) {
 		alert("8~24자 영문대소문자, 숫자 혼합하여 사용해주세요");
@@ -175,23 +150,9 @@ function updateUserInfo(uiNum) {
 		return ;
 	}
 	
-	var name = /^[가-힣]+$/;
-	if(name.test(uiName)==false) {
-		alert("이름은 한글만 가능합니다");
-		return;
-	}
-	if (uiBir.trim().length == 0) {
-		alert("ex)90년 1월 1일 -> 19900101");
-		uiBir = "";
-		 $("#uiBir").focus();
-		return ;
-	}
-	if (uiTran.trim().length != 1) {
-		alert("남/여로 구분하여 입력해주세요");
-		uiTran = "";
-		 $("#uiTran").focus();
-		return ;
-	}
+	
+	
+	
 	
 	if (uiAddress.trim().length > 30) {
 		alert("주소를 30자 이내로 입력해주세요");
@@ -233,7 +194,7 @@ function updateUserInfo(uiNum) {
 		return ;
 	}
 	
-	var params = {uiId:uiId, uiPwd:uiPwd, uiRPwd:uiRPwd, uiName:uiName, uiBir:uiBir, uiTran:uiTran, uiEmail:uiEmail, uiAddress:uiAddress, uiDAddress:uiDAddress, uiPhone:uiPhone, uiDesc:uiDesc};
+	var params = {uiPwd:uiPwd, uiRPwd:uiRPwd, uiEmail:uiEmail, uiAddress:uiAddress, uiDAddress:uiDAddress, uiPhone:uiPhone, uiDesc:uiDesc};
 	params = JSON.stringify(params);
 	
 	var conf = {

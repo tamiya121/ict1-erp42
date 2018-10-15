@@ -169,9 +169,6 @@ function saveUserInfo() {
 		return;
 	}
 	
-	
-	
-	
 	if (uiBir.trim().length == 0) {
 		alert("생년월일을 입력해주세요");
 		uiBir = "";
