@@ -44,23 +44,32 @@ var AjaxUtil = function(conf) {
 
 <body>
 <style>
-table, th, td {
-    border: 3px solid #bcbcbc;
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
   }
-  .jb-th-1 {
-    width: 100px;
+  th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+  }
+  th:nth-child(2n), td:nth-child(2n) {
+    background-color: #bbdefb;
+  }
+  th:nth-child(2n+1), td:nth-child(2n+1) {
+    background-color: #e3f2fd;
   }
 </style>
 	<div id="wrapper">
 		<jsp:include page="/WEB-INF/views/menu/left.jsp" />
 		<div id="page-content-wrapper">
 			<div>
-				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">M E N U</a>
 			</div>
-		</div>
-	</div>
+		
 <div class="container">
-    <form id="boardForm" name="boardForm" method="post">
+    
 		<table class="table table-striped table-hover">
 		
 		<tr>
@@ -69,50 +78,51 @@ table, th, td {
 		
 		<tr>	
 			<td>아이디</td>
-			<td><input type="text" id="uiId" placeholder="ID 3글자 이상 입력"required></td>
-			
+			<td><input type="text" id="uiId" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center"  placeholder="ID 3글자 이상 입력"required></td>
 		</tr>
 		<tr>	
 			<td>비밀번호</td>
-			<td><input type="password" id="uiPwd" placeholder="비밀번호 3글자 이상 입력" required></td>
+			<td><input type="password" id="uiPwd" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="비밀번호 3글자 이상 입력" required></td>
 		</tr>
 		<tr>	
 			<td>비밀번호재확인</td>
-			<td><input type="password" id="uiRPwd" placeholder="비밀번호 확인" required></td>
+			<td><input type="password" id="uiRPwd" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="비밀번호 확인" required></td>
 		</tr>
 		<tr>	
 			<td>이름</td>
-			<td><input type="text" id="uiName" placeholder="이름 2글자 이상 입력" required></td>
+			<td><input type="text" id="uiName" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="이름 2글자 이상 입력" required></td>
 		</tr>
 		<tr>	
 			<td>생년월일</td>
-			<td><input type="text" id="uiBir" placeholder="ex)19901212" required></td>
+			<td><input type="text" id="uiBir" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="ex)19901212" required></td>
 		</tr>
 		<tr>	
 			<td>성별</td>
-			<td><input type="text" id="uiTran" placeholder="남/여" required></td>
+			<td><input type="text" id="uiTran" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="남/여" required></td>
 		</tr>
 		<tr>	
 			<td>이메일</td>
-			<td><input type="email" id="uiEmail" placeholder="30자 이내 입력" required></td>
+			<td><input type="email" id="uiEmail" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="30자 이내 입력" required></td>
 		</tr>
 		<tr>	
 			<td>주소</td>
-			<td><input type="text" id="uiAddress" placeholder="30자 이내 입력" required></td>
+			<td><input type="text" id="uiAddress" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="30자 이내 입력" required></td>
 		</tr>
 		<tr>	
 			<td>상세주소</td>
-			<td><input type="text" id="uiDAddress" placeholder="30자 이내 입력" required></td>
+			<td><input type="text" id="uiDAddress" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="30자 이내 입력" required></td>
 		</tr>
 		<tr>	
 			<td>연락처</td>
-			<td><input type="text" id="uiPhone" placeholder="-없이 입력" required></td>
+			<td><input type="text" id="uiPhone" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="ex)010-0000-0000" required></td>
 		</tr>	
 		<tr>
 			<td>기타사항</td>
-			<td><input type="text" id="uiDesc" placeholder="300자 이내 입력" required></td>
+			<td><input type="text" id="uiDesc" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="300자 이내 입력" required></td>
 		</tr>
 </table>
+</div>
+	</div>
 
 <center><a href='#' style="WIDTH: 60pt; HEIGHT: 30pt" onclick="saveUserInfo()" class="btn btn-success">등록</a></center>     
 <script>
@@ -130,73 +140,92 @@ function saveUserInfo() {
 	var uiDesc = document.querySelector("#uiDesc").value;
 	
 	
-	if (uiId.trim().length < 3) {
-		alert("ID를 3글자 이상 입력해주세요");
-		uiId = "";
-		return ;
-	}
-	if (uiPwd.trim().length < 3) {
-		alert("비밀번호 3글자 이상 입력해주세요");
+    
+
+	var id = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/
+		if (id.test(uiId)==false) {
+			alert("ID를 8~24자 영문대소문자, 숫자 혼합하여 사용해주세요");
+			uiId = "";
+			 $("#uiId").focus();
+			return;
+		}
+	var pwd = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/
+	if (pwd.test(uiPwd)==false) {
+		alert("패스워드를 8~24자 영문대소문자, 숫자 혼합하여 사용해주세요");
 		uiPwd = "";
+		 $("#uiPwd").focus();
 		return;
 	}
 	if (uiRPwd != uiPwd) {
 		alert("비밀번호가 다릅니다");
 		uiRPwd = "";
+		 $("#uiRPwd").focus();
 		return ;
 	}
-	if (uiName.trim().length < 2) {
-		alert("이름을 2글자 이상 입력해주세요");
-		uiName = "";
-		return ;
+	
+	var name = /^[가-힣]+$/;
+	if(name.test(uiName)==false) {
+		alert("이름은 한글만 가능합니다");
+		return;
 	}
+	
+	
 	
 	
 	if (uiBir.trim().length != 8) {
 		alert("ex)90년 1월 1일 -> 19900101");
 		uiBir = "";
+		 $("#uiBir").focus();
 		return ;
 	}
 	if (uiTran.trim().length != 1) {
 		alert("남/여로 구분하여 입력해주세요");
 		uiTran = "";
+		 $("#uiTran").focus();
 		return ;
 	}
 	
 	if (uiAddress.trim().length > 30) {
 		alert("주소를 30자 이내로 입력해주세요");
 		uiAddress = "";
+		 $("#uiAddress").focus();
 		return ;
 	}
 	if (uiDAddress.trim().length > 30) {
 		alert("상세주소를 30자 이내로 입력해주세요");
 		uiDAddress = "";
+		 $("#uiDAddress").focus();
 		return ;
 	}
 	
-		
-	var regExp = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
-	if(regExp.test(uiPhone)==false) {
-		alert("연락처 ex)01000000000");
+	var phone = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/;
+	if(phone.test(uiPhone)==false) {
+		alert("연락처를 확인해주세요");
 		uiPhone = "";
-		return ;
+		 $("#uiPhone").focus();
+		return;
 	}
 	if (uiDesc.trim().length > 300) {
 		alert("기타사항을 300자 이내로 입력해주세요");
 		uiDesc = "";
+		 $("#uiDesc").focus();
 		return ;
 	}
 	if (uiEmail.trim().length ==0) {
 		alert("이메일을 입력해주세요.");
-		uiEmail = "";		
+		uiEmail = "";	
+		 $("#uiEmail").focus();
 		return ;
 	}
 	var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 	if(exptext.test(uiEmail)==false){
 		alert("이메일 형식에 맞게 입력해주세요.");
-		uiEmail = "";		
+		uiEmail = "";	
+		 $("#uiEmail").focus();
 		return ;
 	}
+	
+	
 	
 	
 	var params = {uiId:uiId, uiPwd:uiPwd, uiRPwd:uiRPwd, uiName:uiName, uiBir:uiBir, uiTran:uiTran, uiEmail:uiEmail, uiAddress:uiAddress, uiDAddress:uiDAddress, uiPhone:uiPhone, uiDesc:uiDesc};
@@ -218,7 +247,7 @@ function saveUserInfo() {
 	
 }
 </script>
-</form>
+
 </div>
 </body>
 </html>

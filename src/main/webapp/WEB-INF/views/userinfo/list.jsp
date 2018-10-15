@@ -74,21 +74,38 @@
 </script>
 
 <body>
+
 <style>
-  table, th, td {
-    border: 3px solid #bcbcbc;
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
   }
- 
+  th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+  }
+  thead tr {
+    background-color: #0d47a1;
+    color: #ffffff;
+  }
+  tbody tr:nth-child(2n) {
+    background-color: #bbdefb;
+  }
+  tbody tr:nth-child(2n+1) {
+    background-color: #e3f2fd;
+  }
 </style>
 	<div id="wrapper">
 		<jsp:include page="/WEB-INF/views/menu/left.jsp" />
 		<div id="page-content-wrapper">
 			<div>
-				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">M E N U</a>
 			</div>
 		
 	<div class="3w-container">
-		<form id="boardForm" name="boardForm" method="post">
+		
 			<table class="table table-striped table-hover">
 			
 				
@@ -114,7 +131,7 @@
 				</tbody>
 
 			</table>
-		</form>
+		
 	</div>
 </div>
 </div>
