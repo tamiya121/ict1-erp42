@@ -14,8 +14,19 @@
 	</select>
 	
 	<select id="selectUserInfo" resultType="ui">
-		select * from user_info
-		where uiNum=#{uiNum}
+		select UINUM
+			,UIID
+			,UIPWD
+			,UIRPWD
+			,UINAME
+			,TO_CHAR(to_date(uibir,'YYYY-MM-DD'),'YYYY-MM-DD') AS UIBIR
+			,UITRAN
+			,UIEMAIL
+			,UIPHONE
+			,UIADDRESS
+			,UIDADDRESS			
+			,UIDESC from user_info
+		where uiNum = #{uiNum}
 	</select>
 	
 	<insert id="insertUserInfo" parameterType="ui">
