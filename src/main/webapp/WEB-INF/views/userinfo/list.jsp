@@ -78,7 +78,7 @@
   table, th, td {
     border: 3px solid #bcbcbc;
   }
-  
+ 
 </style>
 	<div id="wrapper">
 		<jsp:include page="/WEB-INF/views/menu/left.jsp" />
@@ -86,9 +86,8 @@
 			<div>
 				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 			</div>
-		</div>
-	</div>
-	<div class="container-">
+		
+	<div class="3w-container">
 		<form id="boardForm" name="boardForm" method="post">
 			<table class="table table-striped table-hover">
 			
@@ -117,7 +116,8 @@
 			</table>
 		</form>
 	</div>
-
+</div>
+</div>
 
 
 </body>
