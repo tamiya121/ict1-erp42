@@ -9,7 +9,7 @@ public class UserInfo {
 	private String uiPwd;
 	private String uiRPwd;
 	private String uiName;
-	private Integer uiBir;
+	private String uiBir;
 	private String uiTran;
 	private String uiEmail;
 	private String uiPhone;
@@ -19,7 +19,7 @@ public class UserInfo {
 	
 	public UserInfo() {}
 	
-	public UserInfo(Integer uiNum, String uiId, String uiPwd, String uiRPwd, String uiName, Integer uiBir, String uiTran,
+	public UserInfo(Integer uiNum, String uiId, String uiPwd, String uiRPwd, String uiName, String uiBir, String uiTran,
 			String uiEmail, String uiPhone, String uiAddress, String uiDAddress, String uiDesc) {
 		super();
 		this.uiNum = uiNum;
@@ -65,10 +65,10 @@ public class UserInfo {
 	public void setUiName(String uiName) {
 		this.uiName = uiName;
 	}
-	public Integer getUiBir() {
+	public String getUiBir() {
 		return uiBir;
 	}
-	public void setUiBir(Integer uiBir) {
+	public void setUiBir(String uiBir) {
 		this.uiBir = uiBir;
 	}
 	public String getUiTran() {
