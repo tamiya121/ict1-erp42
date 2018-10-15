@@ -94,7 +94,7 @@ var AjaxUtil = function(conf) {
 		</tr>
 		<tr>	
 			<td>생년월일</td>
-			<td><input type="text" id="uiBir" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" placeholder="ex)19901212" required></td>
+			<td><input type="date" id="uiBir" size="100" style="background-color:transparent;border:0 solid black;text-align:right; text-align:center"  required></td>
 		</tr>
 		<tr>	
 			<td>성별</td>
@@ -172,8 +172,8 @@ function saveUserInfo() {
 	
 	
 	
-	if (uiBir.trim().length != 8) {
-		alert("ex)90년 1월 1일 -> 19900101");
+	if (uiBir.trim().length == 0) {
+		alert("생년월일을 입력해주세요");
 		uiBir = "";
 		 $("#uiBir").focus();
 		return ;

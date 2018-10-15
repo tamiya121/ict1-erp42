@@ -180,7 +180,7 @@ function updateUserInfo(uiNum) {
 		alert("이름은 한글만 가능합니다");
 		return;
 	}
-	if (uiBir.trim().length != 8) {
+	if (uiBir.trim().length == 0) {
 		alert("ex)90년 1월 1일 -> 19900101");
 		uiBir = "";
 		 $("#uiBir").focus();
