@@ -5,8 +5,8 @@
 <%@ include file="/WEB-INF/views/common/common.jsp"%>
 <html>
 <head>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <script>
 	var AjaxUtil = function(conf) {
@@ -44,86 +44,105 @@
 
 <body>
 
-<style>
-  table {
-    width: 100%;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-  }
-  th, td {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-    text-align: center;
-  }
-  th:nth-child(2n), td:nth-child(2n) {
-    background-color: #bbdefb;
-  }
-  th:nth-child(2n+1), td:nth-child(2n+1) {
-    background-color: #e3f2fd;
-  }
+	<style>
+table {
+	width: 100%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+th, td {
+	border-bottom: 1px solid #444444;
+	padding: 10px;
+	text-align: center;
+}
+
+th:nth-child(2n), td:nth-child(2n) {
+	background-color: #bbdefb;
+}
+
+th:nth-child(2n+1), td:nth-child(2n+1) {
+	background-color: #e3f2fd;
+}
 </style>
 	<div id="wrapper">
 		<jsp:include page="/WEB-INF/views/menu/left.jsp" />
 		<div id="page-content-wrapper">
 			<div>
-				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">M E N U</a>
+				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">M
+					E N U</a>
 			</div>
-	
-<div class="container">
-    <form id="boardForm" name="boardForm" method="post">
-        <table class="table table-striped table-hover">
-		<tr>
-			<th colspan="2"><h1>정보변경</h1></th>
-		</tr>
+
+			<div class="container">
+				
+					<table class="table table-striped table-hover">
+						<tr>
+							<th colspan="2"><h1>정보변경</h1></th>
+						</tr>
+
+						<tr>
+							<td>번호</td>
+							<td>${ui.uiNum}</td>
+
+						</tr>
+
+						<tr>
+							<td>비밀번호</td>
+							<td><input type="password" size="100"
+								style="background-color: transparent; border: 0 solid black; text-align: right; text-align: center"
+								id="uiPwd" value="${ui.uiPwd }"></td>
+						</tr>
+						<tr>
+							<td>비밀번호재확인</td>
+							<td><input type="password" size="100"
+								style="background-color: transparent; border: 0 solid black; text-align: right; text-align: center"
+								id="uiRPwd" value="${ui.uiRPwd }"></td>
+						</tr>
+						<tr>
+							<td>이메일</td>
+							<td><input type="email" size="100"
+								style="background-color: transparent; border: 0 solid black; text-align: right; text-align: center"
+								id="uiEmail" value="${ui.uiEmail }"></td>
+						</tr>
+						<tr>
+							<td>주소</td>
+							<td><input type="text" size="100"
+								style="background-color: transparent; border: 0 solid black; text-align: right; text-align: center"
+								id="uiAddress" value="${ui.uiAddress }"></td>
+						</tr>
+						<tr>
+							<td>상세주소</td>
+							<td><input type="text" size="100"
+								style="background-color: transparent; border: 0 solid black; text-align: right; text-align: center"
+								id="uiDAddress" value="${ui.uiDAddress }"></td>
+						</tr>
+						<tr>
+							<td>연락처</td>
+							<td><input type="text" size="100"
+								style="background-color: transparent; border: 0 solid black; text-align: right; text-align: center"
+								id="uiPhone" value="${ui.uiPhone }"></td>
+						</tr>
+						<tr>
+							<td>기타사항</td>
+							<td><input type="text" size="100"
+								style="background-color: transparent; border: 0 solid black; text-align: right; text-align: center"
+								id="uiDesc" value="${ui.uiDesc }"></td>
+						</tr>
+					</table>
+			</div>
+		</div>
+		<div>
+			<center>
+				<a href='#' style="WIDTH: 60pt; HEIGHT: 30pt"onclick="updateUserInfo(${ui.uiNum})" class="btn btn-success">수정</a> 
+				<a href='#' style="WIDTH: 60pt; HEIGHT: 30pt"onclick="deleteUserInfo(${ui.uiNum})" class="btn btn-success">삭제</a>
+			</center>
+		</div>
 		
-		<tr>	
-			<td>번호</td>
-			<td>${ui.uiNum}</td>
-			
-		</tr>
-		
-		<tr>	
-			<td>비밀번호</td>
-			<td><input type="password" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiPwd" value="${ui.uiPwd }"></td>
-		</tr>
-		<tr>	
-			<td>비밀번호재확인</td>
-			<td><input type="password" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiRPwd" value="${ui.uiRPwd }"></td>
-		</tr>
-		<tr>	
-			<td>이메일</td>
-			<td><input type="email" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiEmail" value="${ui.uiEmail }"></td>
-		</tr>
-		<tr>	
-			<td>주소</td>
-			<td><input type="text" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiAddress" value="${ui.uiAddress }"></td>
-		</tr>
-		<tr>	
-			<td>상세주소</td>
-			<td><input type="text" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiDAddress" value="${ui.uiDAddress }"></td>
-		</tr>
-		<tr>	
-			<td>연락처</td>
-			<td><input type="text" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiPhone" value="${ui.uiPhone }"></td>
-		</tr>	
-		<tr>
-			<td>기타사항</td>
-			<td><input type="text" size="100"  style="background-color:transparent;border:0 solid black;text-align:right; text-align:center" id="uiDesc" value="${ui.uiDesc }"></td>
-		</tr>
-</table>
 	</div>
-	</div>		
-		<div>            
-            <center><a href='#' style="WIDTH: 60pt; HEIGHT: 30pt"  onclick="updateUserInfo(${ui.uiNum})" class="btn btn-success">수  정</a> <a href='#' style="WIDTH: 60pt; HEIGHT: 30pt" onclick="deleteUserInfo(${ui.uiNum})" class="btn btn-success">삭  제</a></center>    
-               
-         </div>
-		</form>
-		 	
-</div>
 </body>
 
 
-			
+
 <script>			
 function updateUserInfo(uiNum) {
 	
@@ -149,10 +168,6 @@ function updateUserInfo(uiNum) {
 		 $("#uiRPwd").focus();
 		return ;
 	}
-	
-	
-	
-	
 	
 	if (uiAddress.trim().length > 30) {
 		alert("주소를 30자 이내로 입력해주세요");
@@ -228,5 +243,5 @@ function deleteUserInfo(uiNum){
 	au.send();	
 }
 </script>
-</html>	
+</html>
 <jsp:include page="/WEB-INF/views/menu/bottom.jsp" />

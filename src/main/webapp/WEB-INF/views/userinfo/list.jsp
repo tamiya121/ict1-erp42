@@ -75,40 +75,45 @@
 
 <body>
 
-<style>
-  table {
-    width: 100%;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-  }
-  th, td {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-    text-align: center;
-  }
-  thead tr {
-    background-color: #0d47a1;
-    color: #ffffff;
-  }
-  tbody tr:nth-child(2n) {
-    background-color: #bbdefb;
-  }
-  tbody tr:nth-child(2n+1) {
-    background-color: #e3f2fd;
-  }
+	<style>
+table {
+	width: 100%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+th, td {
+	border-bottom: 1px solid #444444;
+	padding: 10px;
+	text-align: center;
+}
+
+thead tr {
+	background-color: #0d47a1;
+	color: #ffffff;
+}
+
+tbody tr:nth-child(2n) {
+	background-color: #bbdefb;
+}
+
+tbody tr:nth-child(2n+1) {
+	background-color: #e3f2fd;
+}
 </style>
 	<div id="wrapper">
 		<jsp:include page="/WEB-INF/views/menu/left.jsp" />
 		<div id="page-content-wrapper">
 			<div>
-				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">M E N U</a>
+				<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">M
+					E N U</a>
 			</div>
-		
-	<div class="3w-container">
-		
-			<table class="table table-striped table-hover">
-			
-				
+
+			<div class="3w-container">
+
+				<table class="table table-striped table-hover">
+
+
 					<tr>
 						<th colspan="13"><h1>리스트</h1></th>
 					</tr>
@@ -126,15 +131,15 @@
 						<td>연락처</td>
 						<td>기타사항</td>
 					</tr>
-				
-				<tbody id="uiBody">
-				</tbody>
 
-			</table>
-		
+					<tbody id="uiBody">
+					</tbody>
+
+				</table>
+
+			</div>
+		</div>
 	</div>
-</div>
-</div>
 
 
 </body>
